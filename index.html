@@ -187,7 +187,13 @@
 
             riskAmountDisplayEl.textContent = formatCurrency(riskAmount);
             positionValueDisplayEl.textContent = formatCurrency(positionValue);
-            leverageDisplayEl.textContent = leverage.toFixed(2) + 'X';
+            
+            // Updated leverage display logic
+            if (leverage <= 1) {
+                leverageDisplayEl.textContent = "1.00X (No Leverage)"; 
+            } else {
+                leverageDisplayEl.textContent = leverage.toFixed(2) + 'X';
+            }
 
             if (riskPerUnit > 0) {
                  positionSizeDisplayEl.textContent = positionSize.toFixed(4);
